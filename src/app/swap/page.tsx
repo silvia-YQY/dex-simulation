@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 const SwapPage = () => {
   const { isConnected } = useAccount(); // Check if wallet is connected
   const { data: walletClient } = useWalletClient(); // Get wallet client
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
+  const [signer, setSigner] = useState<ethers.Signer>();
 
   useEffect(() => {
     if (isConnected && walletClient) {
