@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "typeRoots": ["node_modules/@types", "node_modules"],
+    "typeRoots": ["node_modules/@types"],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -23,6 +23,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "windi.config.ts", "postcss.config.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "windi.config.ts", "postcss.config.ts"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "dist",
+    "build",
+    ".next"
+  ]
+
 }
