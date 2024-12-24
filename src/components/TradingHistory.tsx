@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ethers } from "ethers";
-import { useAccount } from "wagmi";
 
 interface Transaction {
   blockNumber: string;
@@ -40,7 +39,7 @@ const TradingHistory = ({ walletAddress }: { walletAddress: string }) => {
       } else {
         setError("No transactions found.");
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
       setError("Failed to fetch transaction history.");
     } finally {

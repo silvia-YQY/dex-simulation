@@ -119,8 +119,12 @@ const Swap: React.FC<SwapProps> = ({ signer }) => {
       console.error(error);
       if (error instanceof Error) {
         setStatus(`Error: ${error.message}`);
-      } else if ((error as any)?.reason) {
-        setStatus(`Error: ${(error as any).reason}`);
+      } else if (
+        typeof error === "object" &&
+        error !== null &&
+        "reason" in error
+      ) {
+        setStatus(`Error: ${(error as { reason: string }).reason}`);
       } else {
         setStatus("An unknown error occurred.");
       }
