@@ -11,9 +11,8 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        teal: {
-          100: "#096",
-        },
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
     },
   },

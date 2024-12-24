@@ -22,9 +22,21 @@ export default function HomePage() {
 
       {/* display crypto exchange */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <TokenCard tokenSymbol="BTC" tokenName="Bitcoin" price="50000" />
-        <TokenCard tokenSymbol="ETH" tokenName="Ethereum" price="4000" />
-        <TokenCard tokenSymbol="BNB" tokenName="Binance Coin" price="300" />
+        <TokenCard tokenSymbol="BTC" tokenName="bitcoin" />
+        <TokenCard tokenSymbol="ETH" tokenName="ethereum" />
+        <TokenCard tokenSymbol="BNB" tokenName="binancecoin" />
+        <TokenCard tokenSymbol="DOGE" tokenName="dogecoin" />
+        <TokenCard tokenSymbol="XRP" tokenName="ripple" />
+        <TokenCard tokenSymbol="ADA" tokenName="cardano" />
+        <TokenCard tokenSymbol="SOL" tokenName="solana" />
+        <TokenCard tokenSymbol="DOT" tokenName="polkadot" />
+        <TokenCard tokenSymbol="MATIC" tokenName="polygon" />
+        <TokenCard tokenSymbol="LTC" tokenName="litecoin" />
+        <TokenCard tokenSymbol="SHIB" tokenName="shiba-inu" />
+        <TokenCard tokenSymbol="AVAX" tokenName="avalanche" />
+        <TokenCard tokenSymbol="UNI" tokenName="uniswap" />
+        <TokenCard tokenSymbol="ATOM" tokenName="cosmos" />
+        <TokenCard tokenSymbol="LINK" tokenName="chainlink" />
       </section>
 
       {/* 快速导航到交易功能 */}

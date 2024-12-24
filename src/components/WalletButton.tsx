@@ -3,5 +3,5 @@ import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function WalletButton() {
-  return <ConnectButton />;
+  return <ConnectButton accountStatus="avatar" chainStatus="icon" />;
 }
