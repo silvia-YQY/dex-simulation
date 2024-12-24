@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import WalletButton from "@/components/WalletButton";
+import Link from "next/link";
 
-import { useAccount, useWalletClient } from "wagmi";
-import { ethers } from "ethers";
+// import { useAccount, useWalletClient } from "wagmi";
+// import { ethers } from "ethers";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const { isConnected } = useAccount(); // Check if wallet is connected
-  const { data: walletClient } = useWalletClient(); // Get wallet client
+  // const { isConnected } = useAccount(); // Check if wallet is connected
+  // const { data: walletClient } = useWalletClient(); // Get wallet client
 
   useEffect(() => {
     // Check system preference or existing user preference
@@ -117,24 +118,24 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex space-x-24">
-          <a
+          <Link
             href="/"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/swap"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600"
           >
             Swap
-          </a>
-          <a
+          </Link>
+          <Link
             href="/history"
             className="text-gray-600 dark:text-gray-300 hover:text-blue-600"
           >
             History
-          </a>
+          </Link>
         </nav>
         <WalletButton />
       </div>
@@ -148,28 +149,28 @@ export default function Header() {
       >
         <ul className="flex flex-col space-y-2 p-4">
           <li>
-            <a
+            <Link
               href="/"
               className="block text-gray-600 dark:text-gray-300 hover:text-blue-600"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/swap"
               className="block text-gray-600 dark:text-gray-300 hover:text-blue-600"
             >
               Swap
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/history"
               className="block text-gray-600 dark:text-gray-300 hover:text-blue-600"
             >
               History
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

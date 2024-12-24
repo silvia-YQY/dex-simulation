@@ -1,6 +1,4 @@
-import { Config } from "postcss";
-
-const config: Config = {
+const config = {
   plugins: {
     autoprefixer: {},
   },

@@ -1,4 +1,4 @@
-import { createStorage, http } from "wagmi";
+import { createStorage } from "wagmi";
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import {
   arbitrum,

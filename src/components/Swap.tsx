@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { useAccount, useWalletClient } from "wagmi";
 import { ethers } from "ethers";
 
-const PancakeSwapRouter = "0x10ED43C718714eb63d5aA57B78B54704E256024E";
+// const PancakeSwapRouter = "0x10ED43C718714eb63d5aA57B78B54704E256024E";
 
-const routerABI = [
-  "function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)",
-];
+// const routerABI = [
+//   "function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)",
+// ];
 
 interface SwapProps {
-  signer: ethers.Signer | null; // Accept signer as a prop
+  signer?: ethers.Signer | null; // Accept signer as a prop
 }
 
 const Swap: React.FC<SwapProps> = ({ signer }) => {
@@ -35,34 +35,33 @@ const Swap: React.FC<SwapProps> = ({ signer }) => {
     }
 
     try {
-      const routerAddress = "0x10ED43C718714eb63d5aA57B78B54704E256024E"; // PancakeSwap Router
-      const routerABI = [
-        "function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)",
-      ];
-
-      const routerContract = new ethers.Contract(
-        routerAddress,
-        routerABI,
-        signer
-      );
-
-      const path = [inputToken, outputToken];
-      const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
-
-      const tx = await routerContract.swapExactTokensForTokens(
-        ethers.utils.parseUnits(amountIn, 18),
-        ethers.utils.parseUnits(amountOutMin, 18),
-        path,
-        await signer.getAddress(),
-        deadline
-      );
-
-      setStatus(`Transaction submitted: ${tx.hash}`);
-      await tx.wait();
+      // const routerAddress = "0x10ED43C718714eb63d5aA57B78B54704E256024E"; // PancakeSwap Router
+      // const routerABI = [
+      //   "function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)",
+      // ];
+      // const routerContract = new ethers.Contract(
+      //   routerAddress,
+      //   routerABI,
+      //   signer
+      // );
+      // const path = [inputToken, outputToken];
+      // const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
+      // const tx = await routerContract.swapExactTokensForTokens(
+      //   ethers.utils.parseUnits(amountIn, 18),
+      //   ethers.utils.parseUnits(amountOutMin, 18),
+      //   path,
+      //   await signer.getAddress(),
+      //   deadline
+      // );
+      // setStatus(`Transaction submitted: ${tx.hash}`);
+      // await tx.wait();
       setStatus("Transaction confirmed!");
     } catch (error) {
-      console.error(error);
-      setStatus(`Error: ${error.message}`);
+      if (error instanceof Error) {
+        setStatus(`Error: ${error.message}`);
+      } else {
+        setStatus(`An unknown error occurred`);
+      }
     }
   };
 
