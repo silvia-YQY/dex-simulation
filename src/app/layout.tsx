@@ -14,10 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <Header />
-        <Providers>{children}</Providers>
-        <Footer />
+      <body className="bg-gray-50 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-100">
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

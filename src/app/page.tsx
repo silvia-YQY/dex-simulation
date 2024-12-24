@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-import WalletButton from "@/components/WalletButton";
 import TokenCard from "@/components/TokenCard";
-
 export default function HomePage() {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -13,11 +11,6 @@ export default function HomePage() {
         <p className="text-lg text-gray-500 dark:text-gray-400">
           Trade your favorite tokens seamlessly and securely.
         </p>
-      </section>
-
-      {/* connect with wallet */}
-      <section className="flex justify-center my-8">
-        <WalletButton />
       </section>
 
       {/* display crypto exchange */}
