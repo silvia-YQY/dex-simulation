@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import WalletButton from "@/components/WalletButton";
 
+import { useAccount, useWalletClient } from "wagmi";
+import { ethers } from "ethers";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const { isConnected } = useAccount(); // Check if wallet is connected
+  const { data: walletClient } = useWalletClient(); // Get wallet client
 
   useEffect(() => {
     // Check system preference or existing user preference
@@ -30,6 +35,16 @@ export default function Header() {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
     localStorage.setItem("theme", newTheme); // Save user preference
   };
+
+  // useEffect(() => {
+  //   if (isConnected && walletClient) {
+  //     const provider = new ethers.providers.Web3Provider(walletClient);
+  //     const signer = provider.getSigner();
+
+  //     console.log("Signer Address:", signer);
+  //     // Pass `signer` to other functions or components
+  //   }
+  // }, [isConnected, walletClient]);
 
   return (
     <header className="bg-yellow dark:bg-gray-800 shadow-md">
@@ -121,6 +136,7 @@ export default function Header() {
             History
           </a>
         </nav>
+        <WalletButton />
       </div>
 
       {/* Mobile Navigation Menu */}
